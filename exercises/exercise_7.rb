@@ -9,4 +9,5 @@ require_relative './exercise_6'
 puts "Exercise 7"
 puts "----------"
 
-# Your code goes here ...
+# pp @store1.employees.create!(first_name: "Gregory", last_name: "Toroshchin", hourly_rate: 40)
+pp Store.create(name: "Grenfo", annual_revenue: 300000, mens_apparel: true, womens_apparel: false )

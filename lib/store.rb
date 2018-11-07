@@ -1,3 +1,27 @@
 class Store < ActiveRecord::Base
+  has_many :employees
 
-end
+  validates :name,
+    presence: true,
+    length: { minimum: 3 }
+
+  validates :annual_revenue,
+    numericality: {
+      only_integer: true,
+      greater_than_or_equal_to: 0
+    }
+
+  validate :mens_apparel_or_womens_apparel
+
+    def mens_apparel_or_womens_apparel
+      if !mens_apparel && !womens_apparel
+         errors.add(:mens_apparel, "can't be empty")
+       end
+     end
+
+     def mens_apparel_or_womens_apparel
+       if !mens_apparel && !womens_apparel
+          errors.add(:womens_apparel, "can't be empty")
+        end
+      end
+   end
